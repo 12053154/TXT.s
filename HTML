@@ -1,0 +1,50 @@
+<html>
+<head>
+  <title>TXT 小说阅读器</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+      padding: 20px;
+    }
+    .content {
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <h1>小说标题</h1>
+  <div id="novel-content" class="content"></div>
+  <button id="prev-chapter">上一章</button>
+  <button id="next-chapter">下一章</button>
+
+  <script>
+    let currentChapter = 0;
+    const chapters = [
+      '这是第一章的内容......',
+      '这是第二章的内容......'
+      // 可以通过 API 动态加载更多章节
+    ];
+
+    function renderChapter() {
+      document.getElementById('novel-content').innerText = chapters[currentChapter];
+    }
+
+    document.getElementById('prev-chapter').addEventListener('click', () => {
+      if (currentChapter > 0) {
+        currentChapter--;
+        renderChapter();
+      }
+    });
+
+    document.getElementById('next-chapter').addEventListener('click', () => {
+      if (currentChapter < chapters.length - 1) {
+        currentChapter++;
+        renderChapter();
+      }
+    });
+
+    renderChapter();
+  </script>
+</body>
+</html>
