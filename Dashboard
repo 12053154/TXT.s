@@ -1,5 +1,0 @@
-const KV_NAMESPACE = 'your_kv_namespace'
-
-async function handleRequest(request) {
-  const url = new URL(request.url)
-  const chapter = url
